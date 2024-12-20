@@ -9,8 +9,9 @@ from rest_framework.mixins import (
     RetrieveModelMixin,
     ListModelMixin,
     DestroyModelMixin,
+    UpdateModelMixin,
 )
-from .models import Product, Collection, OrderItem, Review, Cart, CartItem
+from .models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer
 from .serializers import (
     ProductSerializer,
     CollectionSerializer,
@@ -19,6 +20,7 @@ from .serializers import (
     AddCartItemSerializer,
     UpdateCartItemSerializer,
     CartSerializer,
+    CustomerSerializer,
 )
 
 
@@ -97,3 +99,10 @@ class ReviewViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {"product_id": self.kwargs["product_pk"]}
+
+
+class CustomerViewSet(
+    CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet
+):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
