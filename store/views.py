@@ -24,7 +24,7 @@ from .serializers import (
     CartSerializer,
     CustomerSerializer,
 )
-from .permissions import IsAdminOrReadOnly
+from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 
 
 class ProductViewSet(ModelViewSet):
@@ -122,3 +122,7 @@ class CustomerViewSet(ModelViewSet):
             return serializer.data
 
         return Response(serializer.data)
+
+    @action(detail=True, permission_classes=[ViewCustomerHistoryPermission])
+    def history(self, request, pk):
+        return Response("hi")
