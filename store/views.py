@@ -13,7 +13,16 @@ from rest_framework.mixins import (
     DestroyModelMixin,
     UpdateModelMixin,
 )
-from .models import Product, Collection, OrderItem, Review, Cart, CartItem, Customer
+from .models import (
+    Product,
+    Collection,
+    OrderItem,
+    Review,
+    Cart,
+    CartItem,
+    Customer,
+    Order,
+)
 from .serializers import (
     ProductSerializer,
     CollectionSerializer,
@@ -23,6 +32,8 @@ from .serializers import (
     UpdateCartItemSerializer,
     CartSerializer,
     CustomerSerializer,
+    OrderSerializer,
+    OrderItemSerializer,
 )
 from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 
@@ -126,3 +137,13 @@ class CustomerViewSet(ModelViewSet):
     @action(detail=True, permission_classes=[ViewCustomerHistoryPermission])
     def history(self, request, pk):
         return Response("hi")
+
+
+class OrderItemViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderItemSerializer
+
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
