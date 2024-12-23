@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 
-MAX_SIZE_KB = 50
+MAX_SIZE_KB = 500
 
 
 def validate_file_size(file):
