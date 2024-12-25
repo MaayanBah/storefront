@@ -40,9 +40,9 @@ class TestCreateCollection:
         assert response.data["id"] > 0
 
 
-@pytest.mark.django_db(transaction=True)
+@pytest.mark.django_db()
 class TestRetrieveCollection:
-    def test_if_collection_dont_exist_returns_400(Self, api_client):
+    def test_if_collection_dont_exist_returns_404(Self, api_client):
         fake_id = 2
         response = api_client.get(f"/store/collections/{fake_id}/")
 
