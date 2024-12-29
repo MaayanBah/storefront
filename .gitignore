@@ -141,3 +141,4 @@ GitHub.sublime-settings
 
 *.jpg
 /static/
+storefront/settings/dev.py
