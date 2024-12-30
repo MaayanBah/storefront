@@ -8,9 +8,11 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 """
 
 import os
-
 from django.core.asgi import get_asgi_application
+import dj_database_url
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'storefront.settings.dev')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "storefront.settings.dev")
 
 application = get_asgi_application()
+
+DATABASES = {"default": dj_database_url.config()}
