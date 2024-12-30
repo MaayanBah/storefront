@@ -19,6 +19,7 @@ django-silk = "*"
 django-templated-mail = "*"
 django-rest-swagger = "*"
 whitenoise = "*"
+pillow = "*"
 
 [dev-packages]
 
