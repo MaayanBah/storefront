@@ -5,13 +5,18 @@ import os
 
 
 class Command(BaseCommand):
-    help = 'Populates the database with collections and products'
+    help = "Populates the database with collections and products"
 
     def handle(self, *args, **options):
-        print('Populating the database...')
+        print("Populating the database...")
         current_dir = os.path.dirname(__file__)
-        file_path = os.path.join(current_dir, 'seed.sql')
+        file_path = os.path.join(current_dir, "seed.sql")
         sql = Path(file_path).read_text()
 
         with connection.cursor() as cursor:
+            cursor.execute("DELETE FROM store_collection;")
+            cursor.execute("DELETE FROM store_product;")
+
+            cursor.execute("ALTER TABLE store_collection AUTO_INCREMENT = 1;")
+            cursor.execute("ALTER TABLE store_product AUTO_INCREMENT = 1;")
             cursor.execute(sql)
