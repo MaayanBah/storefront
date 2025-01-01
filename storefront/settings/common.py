@@ -152,7 +152,10 @@ DJOSER = {
     }
 }
 
-SIMPLE_JWT = {"AUTH_HEADER_TYPES": ("JWT",), "ACCESS_TOKEN_LIFETIME": timedelta(days=1)}
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+}
 
 DEFAULT_FROM_EMAIL = "admin@gmail.com"
 
