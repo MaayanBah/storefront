@@ -23,3 +23,17 @@ You can login from this URL and you will get a refresh token and an access token
 https://maayan-store-345656c6f6fd.herokuapp.com/auth/jwt/create
 
 Then you add the access token to your header (key: "Authorization", value: "JWT ${access_token}")
+
+## Superuser
+
+The superuser can login from this URL:
+
+https://maayan-store-345656c6f6fd.herokuapp.com/admin/
+
+When accessed, the superuser can view, delete and modify the API models:
+
+<img src="https://github.com/MaayanBah/storefront/blob/3655441453f650ff2277310a2b1429616284ffb2/github_images/admin.png" alt="Image Alt Text" width="500"/>
+
+For example this is the products page:
+
+<img src="https://github.com/MaayanBah/storefront/blob/3655441453f650ff2277310a2b1429616284ffb2/github_images/admin_prod.png" alt="Image Alt Text" width="700"/>
