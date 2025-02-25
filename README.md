@@ -1,3 +1,10 @@
+> [!NOTE]
+>
+> ## 🌐 Website Availability
+>
+> ⚠️ The website is currently unavailable as it has been taken down from production.
+> If you need access, please contact me, and I can redeploy the site.
+
 # Store API project
 
 This project features a store API developed with Django.
